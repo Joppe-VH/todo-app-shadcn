@@ -32,14 +32,14 @@
     {
       "id": "todo-2",
       "text": "Grocery shopping",
-      "completed": false,
+      "completed": true,
       "categorieId": "cat-2",
       "description": "Buy fruits, vegetables, and other essentials for the week"
     },
     {
       "id": "todo-3",
       "text": "Workout session",
-      "completed": false,
+      "completed": true,
       "categorieId": "cat-3",
       "description": "30 minutes cardio followed by strength training exercises"
     },
