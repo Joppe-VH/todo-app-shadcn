@@ -1,4 +1,4 @@
-import { Badge } from "./ui/badge"
+import Badge from "./Badge"
 import { Button } from "./ui/button"
 import { Checkbox } from "./ui/checkbox"
 import { Todo } from "../types"
@@ -17,7 +17,7 @@ const TodoItem = ({ todo }: Props) => {
             <div className="flex w-full items-center gap-2">
               <Checkbox checked={todo.completed} />
               <span className="grow">{todo.text}</span>
-              <Badge>{todo.categorie.name}</Badge>
+              <Badge color={todo.categorie.color}>{todo.categorie.name}</Badge>
             </div>
           </AccordionTrigger>
         </div>
