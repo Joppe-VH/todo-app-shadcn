@@ -6,7 +6,10 @@ export const todoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
   tagTypes: ["Todos"],
   endpoints: builder => ({
-    getTodos: builder.query<Todo[], void>({ query: () => "/todos?_embed=categorie" }),
+    getTodos: builder.query<Todo[], void>({
+      query: () => "/todos?_embed=categorie",
+      providesTags: ["Todos"],
+    }),
     addTodo: builder.mutation<Todo, Partial<Todo>>({
       query: todo => ({
         url: "/todos",
@@ -15,8 +18,16 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ["Todos"],
     }),
+    toggleTodo: builder.mutation<Todo, Pick<Todo, "id" | "completed">>({
+      query: ({ id, completed }) => ({
+        url: `/todos/${id}`,
+        method: "PATCH",
+        body: { completed: !completed },
+      }),
+      invalidatesTags: ["Todos"],
+    }),
     getCategories: builder.query<Categorie[], void>({ query: () => "/categories" }),
   }),
 })
 
-export const { useGetTodosQuery, useAddTodoMutation, useGetCategoriesQuery } = todoApi
+export const { useGetTodosQuery, useAddTodoMutation, useGetCategoriesQuery, useToggleTodoMutation } = todoApi

@@ -32,7 +32,7 @@
     {
       "id": "todo-2",
       "text": "Grocery shopping",
-      "completed": true,
+      "completed": false,
       "categorieId": "cat-2",
       "description": "Buy fruits, vegetables, and other essentials for the week"
     },
