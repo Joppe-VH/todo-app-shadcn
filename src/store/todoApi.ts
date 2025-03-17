@@ -26,8 +26,21 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ["Todos"],
     }),
+    removeTodo: builder.mutation<Todo, Todo["id"]>({
+      query: id => ({
+        url: `/todos/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Todos"],
+    }),
     getCategories: builder.query<Categorie[], void>({ query: () => "/categories" }),
   }),
 })
 
-export const { useGetTodosQuery, useAddTodoMutation, useGetCategoriesQuery, useToggleTodoMutation } = todoApi
+export const {
+  useGetTodosQuery,
+  useAddTodoMutation,
+  useGetCategoriesQuery,
+  useToggleTodoMutation,
+  useRemoveTodoMutation,
+} = todoApi
