@@ -1,13 +1,13 @@
 import TodoItem from "./TodoItem"
+import { useGetTodosQuery } from "../store/todoApi"
 
 const TodoList = () => {
+  const { data: todos } = useGetTodosQuery()
+
+  console.log(todos)
   return (
     <div>
-      <ul>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-      </ul>
+      <ul>{todos?.map(todo => <TodoItem key={todo.id} todo={todo} />)}</ul>
     </div>
   )
 }

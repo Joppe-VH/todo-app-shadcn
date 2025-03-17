@@ -26,28 +26,28 @@
       "id": "todo-1",
       "text": "Complete project documentation",
       "completed": false,
-      "categoryId": "cat-1",
+      "categorieId": "cat-1",
       "description": "Write comprehensive documentation for the new feature implementation including API endpoints and data structures"
     },
     {
       "id": "todo-2",
       "text": "Grocery shopping",
       "completed": true,
-      "categoryId": "cat-2",
+      "categorieId": "cat-2",
       "description": "Buy fruits, vegetables, and other essentials for the week"
     },
     {
       "id": "todo-3",
       "text": "Workout session",
       "completed": false,
-      "categoryId": "cat-3",
+      "categorieId": "cat-3",
       "description": "30 minutes cardio followed by strength training exercises"
     },
     {
       "id": "todo-4",
       "text": "Read technical article",
       "completed": false,
-      "categoryId": "cat-4",
+      "categorieId": "cat-4",
       "description": "Read the latest article about React performance optimization techniques"
     }
   ]
