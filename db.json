@@ -32,14 +32,14 @@
     {
       "id": "todo-2",
       "text": "Grocery shopping",
-      "completed": true,
+      "completed": false,
       "categorieId": "cat-2",
       "description": "Buy fruits, vegetables, and other essentials for the week"
     },
     {
       "id": "todo-3",
       "text": "Workout session",
-      "completed": true,
+      "completed": false,
       "categorieId": "cat-3",
       "description": "30 minutes cardio followed by strength training exercises"
     },
@@ -49,6 +49,22 @@
       "completed": false,
       "categorieId": "cat-4",
       "description": "Read the latest article about React performance optimization techniques"
+    },
+    {
+      "id": "4c24",
+      "text": "test5",
+      "categorieId": "cat-2",
+      "description": "tst555"
+    },
+    {
+      "id": "b40a",
+      "text": "tailwind",
+      "categorieId": "cat-1"
+    },
+    {
+      "id": "f50d",
+      "text": "tailwind",
+      "categorieId": "cat-1"
     }
   ]
 }

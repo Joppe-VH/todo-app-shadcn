@@ -4,6 +4,8 @@ import { Todo, Categorie } from "../types"
 interface GetTodosParams {
   categorieId?: string
   status?: "all" | "active" | "completed"
+  limit?: number
+  page?: number
 }
 
 export const todoApi = createApi({
@@ -25,6 +27,15 @@ export const todoApi = createApi({
 
         if (params?.status && params.status === "completed") {
           url += `&completed=true`
+        }
+
+        if (params?.limit) {
+          url += `&_limit=${params.limit}`
+        }
+
+        if (params?.page) {
+          const start = (params.page - 1) * (params.limit || 10)
+          url += `&_start=${start}`
         }
 
         return url
@@ -55,6 +66,14 @@ export const todoApi = createApi({
       invalidatesTags: ["Todos"],
     }),
     getCategories: builder.query<Categorie[], void>({ query: () => "/categories" }),
+    updateTodo: builder.mutation<Todo, Partial<Todo>>({
+      query: todo => ({
+        url: `/todos/${todo.id}`,
+        method: "PATCH",
+        body: todo,
+      }),
+      invalidatesTags: ["Todos"],
+    }),
   }),
 })
 
@@ -64,4 +83,5 @@ export const {
   useGetCategoriesQuery,
   useToggleTodoMutation,
   useRemoveTodoMutation,
+  useUpdateTodoMutation,
 } = todoApi

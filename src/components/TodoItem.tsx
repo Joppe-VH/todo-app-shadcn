@@ -3,7 +3,10 @@ import { Button } from "./ui/button"
 import { Checkbox } from "./ui/checkbox"
 import { Todo } from "../types"
 import { AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
-import { useRemoveTodoMutation, useToggleTodoMutation } from "../store/todoApi"
+import { useRemoveTodoMutation, useToggleTodoMutation, useUpdateTodoMutation } from "../store/todoApi"
+import { Pen, X } from "lucide-react"
+import { TodoEditDialog } from "./TodoEditDialog"
+
 interface Props {
   todo: Todo
 }
@@ -11,6 +14,11 @@ interface Props {
 const TodoItem = ({ todo }: Props) => {
   const [toggleTodo] = useToggleTodoMutation()
   const [removeTodo] = useRemoveTodoMutation()
+  const [updateTodo] = useUpdateTodoMutation()
+
+  const handleUpdateTodo = (updatedTodo: Partial<Todo>) => {
+    updateTodo(updatedTodo)
+  }
 
   return (
     <AccordionItem value={todo.id}>
@@ -25,8 +33,18 @@ const TodoItem = ({ todo }: Props) => {
           </AccordionTrigger>
         </div>
         <div className="flex items-center gap-2">
-          <Button>✏️</Button>
-          <Button onClick={() => removeTodo(todo.id)}>🗑️</Button>
+          <TodoEditDialog
+            todo={todo}
+            onSave={handleUpdateTodo}
+            trigger={
+              <Button variant="ghost" size="icon">
+                <Pen className="h-4 w-4" />
+              </Button>
+            }
+          />
+          <Button variant="ghost" size="icon" onClick={() => removeTodo(todo.id)}>
+            <X className="h-4 w-4" />
+          </Button>
         </div>
       </div>
       <AccordionContent>

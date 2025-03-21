@@ -1,26 +1,19 @@
-import AddTodo from "./components/AddTodo"
-import TodoFilters from "./components/TodoFilters"
-import TodoList from "./components/TodoList"
-import Pagination from "./components/Pagination"
-import TodoStats from "./components/TodoStats"
-import { ModeToggle } from "./components/mode-toggle"
+import { Routes, Route, Navigate } from "react-router-dom"
+import TodoApp from "./pages/TodoApp"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Layout from "./components/Layout"
+
 function App() {
   return (
-    <main className="container mx-auto flex max-w-5xl flex-col gap-4 p-4">
-      <section className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <h1>Todo App</h1>
-          <ModeToggle />
-        </div>
-        <AddTodo />
-      </section>
-      <section className="flex flex-col gap-4">
-        <TodoFilters />
-        <TodoList />
-        <Pagination />
-        <TodoStats />
-      </section>
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/app" element={<TodoApp />} />
+        <Route path="/about" element={<About />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
 
