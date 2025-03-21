@@ -53,7 +53,7 @@ function About() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-primary">•</span>
-                <span>Radix UI components</span>
+                <span>Shadcn components</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-primary">•</span>
@@ -80,6 +80,10 @@ function About() {
               <li className="flex items-center gap-2">
                 <span className="text-primary">•</span>
                 <span>JSON Server for mock API</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">•</span>
+                <span>Redux Devtools</span>
               </li>
             </ul>
           </div>
