@@ -8,7 +8,7 @@ import { filterSlice } from "./filterSlice"
 
 const devToolsOptions: DevToolsEnhancerOptions = {
   // add action creators here so they are available in the Redux DevTools
-  actionCreators: {},
+  actionCreators: { ...filterSlice.actions },
 }
 
 const rootReducer = combineReducers({
