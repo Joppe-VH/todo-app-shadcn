@@ -10,7 +10,7 @@ interface GetTodosParams {
 
 export const todoApi = createApi({
   reducerPath: "todoApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://east-boundless-education.glitch.me" }),
   tagTypes: ["Todos"],
   endpoints: builder => ({
     getTodos: builder.query<Todo[], GetTodosParams>({
